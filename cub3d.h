@@ -6,7 +6,7 @@
 /*   By: potero-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 11:17:49 by potero-d          #+#    #+#             */
-/*   Updated: 2022/08/30 14:50:37 by potero-d         ###   ########.fr       */
+/*   Updated: 2022/08/30 16:37:17 by potero-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,12 @@ void	key_a(t_game *game);
 void	key_s(t_game *game);
 void	key_d(t_game *game);
 void	key_w(t_game *game);
+
+/*Key event dir*/
+int		key_event_n(int key_code, t_game *game);
+int		key_event_s(int key_code, t_game *game);
+int		key_event_e(int key_code, t_game *game);
+int		key_event_o(int key_code, t_game *game);
 
 /*Lookin*/
 void	looking_at(t_game *game);

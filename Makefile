@@ -6,11 +6,12 @@
 #    By: potero-d <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/30 11:07:15 by potero-d          #+#    #+#              #
-#    Updated: 2022/08/30 14:20:37 by potero-d         ###   ########.fr        #
+#    Updated: 2022/08/30 16:15:15 by potero-d         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS = cub.c matrix_size.c assets.c map.c matrix.c key_event.c lookin.c\
+	   key_event_dir.c\
 	   gnl/get_next_line_utils.c gnl/get_next_line.c\
 
 LIBFT_PATH = libft/

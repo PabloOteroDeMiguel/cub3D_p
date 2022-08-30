@@ -6,7 +6,7 @@
 /*   By: potero-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 14:14:52 by potero-d          #+#    #+#             */
-/*   Updated: 2022/08/30 14:50:31 by potero-d         ###   ########.fr       */
+/*   Updated: 2022/08/30 16:22:57 by potero-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ void	look_left(t_game *game)
 		game->direction = 3;
 	else if (game->direction== 2)
 		game->direction = 1;
+	looking_at(game);
 }
 
 void	look_right(t_game *game)
@@ -50,6 +51,7 @@ void	look_right(t_game *game)
 		game->direction = 1;
 	else if (game->direction== 2)
 		game->direction = 3;
+	looking_at(game);
 }
 
 int	dir(char value)

@@ -6,7 +6,7 @@
 /*   By: potero-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 13:21:37 by potero-d          #+#    #+#             */
-/*   Updated: 2022/08/30 14:42:27 by potero-d         ###   ########.fr       */
+/*   Updated: 2022/08/30 16:36:57 by potero-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,16 @@
 
 int	key_event(int key_code, t_game *game)
 {
+	printf("dir->%d\n", game->direction);
+	if (game->direction == 1)
+		key_event_n(key_code, game);
+	else if (game->direction == 2)
+		key_event_e(key_code, game);
+	else if (game->direction == 3)
+		key_event_s(key_code, game);
+	else if (game->direction == 4)
+		key_event_o(key_code, game);
+	/*
 	printf("key->%d\n", key_code);
 	if (key_code == 0)
 		if (movement(game, 0, -1) == 0)
@@ -31,6 +41,7 @@ int	key_event(int key_code, t_game *game)
 			look_left(game);
 	if (key_code == 124)
 			look_right(game);
+	*/
 /*	if (key_code == 53)
 		close_esc(&game->mlx);
 		*/
