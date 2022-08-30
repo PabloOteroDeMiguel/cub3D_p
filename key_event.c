@@ -6,7 +6,7 @@
 /*   By: potero-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 13:21:37 by potero-d          #+#    #+#             */
-/*   Updated: 2022/08/30 16:36:57 by potero-d         ###   ########.fr       */
+/*   Updated: 2022/08/30 21:04:51 by potero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,28 +23,6 @@ int	key_event(int key_code, t_game *game)
 		key_event_s(key_code, game);
 	else if (game->direction == 4)
 		key_event_o(key_code, game);
-	/*
-	printf("key->%d\n", key_code);
-	if (key_code == 0)
-		if (movement(game, 0, -1) == 0)
-			key_a(game);
-	if (key_code == 1)
-		if (movement(game, 1, 0) == 0)
-			key_s(game);
-	if (key_code == 2)
-		if (movement(game, 0, 1) == 0)
-			key_d(game);
-	if (key_code == 13)
-		if (movement(game, -1, 0) == 0)
-			key_w(game);
-	if (key_code == 123)
-			look_left(game);
-	if (key_code == 124)
-			look_right(game);
-	*/
-/*	if (key_code == 53)
-		close_esc(&game->mlx);
-		*/
 	return (0);
 }
 
@@ -62,36 +40,10 @@ int	movement(t_game *game, int x, int y)
 	}
 	else
 	{
+		mlx_put_image_to_window(game->mlx.mlx, game->mlx.window, game->mlx.img_f,
+			((game->player.y) * 50), ((game->player.x) * 50));
 		game->player.x = new_x;
 		game->player.y = new_y;
 		return (0);
 	}
-}
-
-void	key_a(t_game *game)
-{
-	mlx_put_image_to_window(game->mlx.mlx, game->mlx.window, game->mlx.img_f,
-		((game->player.y + 1) * 50), ((game->player.x) * 50));
-	looking_at(game);
-}
-
-void	key_s(t_game *game)
-{
-	mlx_put_image_to_window(game->mlx.mlx, game->mlx.window, game->mlx.img_f,
-		((game->player.y) * 50), ((game->player.x - 1) * 50));
-	looking_at(game);
-}
-
-void	key_d(t_game *game)
-{
-	mlx_put_image_to_window(game->mlx.mlx, game->mlx.window, game->mlx.img_f,
-		((game->player.y - 1) * 50), ((game->player.x) * 50));
-	looking_at(game);
-}
-
-void	key_w(t_game *game)
-{
-	mlx_put_image_to_window(game->mlx.mlx, game->mlx.window, game->mlx.img_f,
-		((game->player.y) * 50), ((game->player.x + 1) * 50));
-	looking_at(game);
 }
