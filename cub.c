@@ -6,7 +6,7 @@
 /*   By: potero-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 11:20:10 by potero-d          #+#    #+#             */
-/*   Updated: 2022/08/30 13:14:01 by potero-d         ###   ########.fr       */
+/*   Updated: 2022/08/30 14:01:31 by potero-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	init(t_game *game, int x, int y, char *argv)
 
 int	hook_loop(t_game *game)
 {
-//	mlx_key_hook(game->mlx.window, key_event, game);
+	mlx_key_hook(game->mlx.window, key_event, game);
 //	mlx_hook(game->mlx.window, 17, (1L << 17), close_esc, &game->mlx);
 	mlx_loop(game->mlx.mlx);
 	return (0);

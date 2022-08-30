@@ -6,7 +6,7 @@
 /*   By: potero-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 11:17:49 by potero-d          #+#    #+#             */
-/*   Updated: 2022/08/30 13:02:58 by potero-d         ###   ########.fr       */
+/*   Updated: 2022/08/30 14:09:43 by potero-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,15 @@ void	assets(t_mlx *mlx);
 
 /*Map*/
 void	image(t_game *game, int x, int y);
+
+/*Key Event*/
+int		key_event(int key_code, t_game *game);
+int		movement(t_game *game, int x, int y);
+void	looking_at(t_game *game);
+void	key_a(t_game *game);
+void	key_s(t_game *game);
+void	key_d(t_game *game);
+void	key_w(t_game *game);
+
 
 #endif

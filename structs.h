@@ -6,7 +6,7 @@
 /*   By: potero-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 11:15:53 by potero-d          #+#    #+#             */
-/*   Updated: 2022/08/30 12:49:36 by potero-d         ###   ########.fr       */
+/*   Updated: 2022/08/30 13:41:31 by potero-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,18 +44,19 @@ typedef struct s_sprite
 	void	*d[8];
 }	t_sprite;
 */
-/*
-typedef struct s_bear
+
+typedef struct s_player
 {
 	int		x;
 	int		y;
-}	t_bear;
-*/
+}	t_player;
+
 typedef struct s_game
 {
 	t_matrix	**matrix;
 	t_mlx		mlx;
-	int			player;
+	t_player	player;
+	char		direction;
 	int			frames;
 	int			steps;
 }	t_game;
