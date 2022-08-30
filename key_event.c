@@ -6,7 +6,7 @@
 /*   By: potero-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 13:21:37 by potero-d          #+#    #+#             */
-/*   Updated: 2022/08/30 14:11:20 by potero-d         ###   ########.fr       */
+/*   Updated: 2022/08/30 14:42:27 by potero-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,10 @@ int	key_event(int key_code, t_game *game)
 	if (key_code == 13)
 		if (movement(game, -1, 0) == 0)
 			key_w(game);
+	if (key_code == 123)
+			look_left(game);
+	if (key_code == 124)
+			look_right(game);
 /*	if (key_code == 53)
 		close_esc(&game->mlx);
 		*/
@@ -51,22 +55,6 @@ int	movement(t_game *game, int x, int y)
 		game->player.y = new_y;
 		return (0);
 	}
-}
-
-void	looking_at(t_game *game)
-{
-	if (game->direction == 'N')
-		mlx_put_image_to_window(game->mlx.mlx, game->mlx.window, game->mlx.img_n,
-			(game->player.y * 50), (game->player.x * 50));
-	else if (game->direction == 'S')
-		mlx_put_image_to_window(game->mlx.mlx, game->mlx.window, game->mlx.img_s,
-			(game->player.y * 50), (game->player.x * 50));
-	else if (game->direction== 'O')
-		mlx_put_image_to_window(game->mlx.mlx, game->mlx.window, game->mlx.img_o,
-			(game->player.y * 50), (game->player.x * 50));
-	else if (game->direction== 'E')
-		mlx_put_image_to_window(game->mlx.mlx, game->mlx.window, game->mlx.img_e,
-			(game->player.y * 50), (game->player.x * 50));
 }
 
 void	key_a(t_game *game)

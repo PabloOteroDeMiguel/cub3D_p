@@ -6,7 +6,7 @@
 /*   By: potero-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 11:15:53 by potero-d          #+#    #+#             */
-/*   Updated: 2022/08/30 13:41:31 by potero-d         ###   ########.fr       */
+/*   Updated: 2022/08/30 14:50:33 by potero-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ typedef struct s_game
 	t_matrix	**matrix;
 	t_mlx		mlx;
 	t_player	player;
-	char		direction;
+	int			direction;
 	int			frames;
 	int			steps;
 }	t_game;

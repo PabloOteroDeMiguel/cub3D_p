@@ -6,7 +6,7 @@
 /*   By: potero-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 11:17:49 by potero-d          #+#    #+#             */
-/*   Updated: 2022/08/30 14:09:43 by potero-d         ###   ########.fr       */
+/*   Updated: 2022/08/30 14:50:37 by potero-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,14 @@ void	image(t_game *game, int x, int y);
 /*Key Event*/
 int		key_event(int key_code, t_game *game);
 int		movement(t_game *game, int x, int y);
-void	looking_at(t_game *game);
 void	key_a(t_game *game);
 void	key_s(t_game *game);
 void	key_d(t_game *game);
 void	key_w(t_game *game);
 
-
+/*Lookin*/
+void	looking_at(t_game *game);
+void	look_left(t_game *game);
+void	look_right(t_game *game);
+int		dir(char value);
 #endif
