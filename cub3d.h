@@ -6,7 +6,7 @@
 /*   By: potero-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 11:17:49 by potero-d          #+#    #+#             */
-/*   Updated: 2022/08/31 09:56:08 by potero-d         ###   ########.fr       */
+/*   Updated: 2022/08/31 11:14:47 by potero-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,4 +60,6 @@ void	looking_at(t_game *game);
 void	look_left(t_game *game);
 void	look_right(t_game *game);
 int		dir(char value);
+void	dir_x_y(t_game *game);
+
 #endif

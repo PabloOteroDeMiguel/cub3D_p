@@ -6,7 +6,7 @@
 /*   By: potero-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 14:14:52 by potero-d          #+#    #+#             */
-/*   Updated: 2022/08/31 10:53:23 by potero-d         ###   ########.fr       */
+/*   Updated: 2022/08/31 12:06:39 by potero-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,30 @@ void    looking_at(t_game *game)
 				(game->player.y * 15), (game->player.x * 15));
 }
 
+void	dir_x_y(t_game *game)
+{
+	if (game->direction == 1)
+	{
+		game->player.dir_x = -1;
+		game->player.dir_y = 0;
+	}
+	else if (game->direction == 3)
+	{
+		game->player.dir_x = 0;
+		game->player.dir_y = 1;
+	}
+	else if (game->direction== 4)
+	{
+		game->player.dir_x = 0;
+		game->player.dir_y = -1;
+	}
+	else if (game->direction== 2)
+	{
+		game->player.dir_x = 1;
+		game->player.dir_y = 0;
+	}
+}
+
 void	look_left(t_game *game)
 {
 	if (game->direction == 1)
@@ -39,6 +63,7 @@ void	look_left(t_game *game)
 	else if (game->direction== 2)
 		game->direction = 1;
 	looking_at(game);
+	dir_x_y(game);
 }
 
 void	look_right(t_game *game)
@@ -52,6 +77,7 @@ void	look_right(t_game *game)
 	else if (game->direction== 2)
 		game->direction = 3;
 	looking_at(game);
+	dir_x_y(game);
 }
 
 int	dir(char value)

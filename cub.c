@@ -6,7 +6,7 @@
 /*   By: potero-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 11:20:10 by potero-d          #+#    #+#             */
-/*   Updated: 2022/08/31 11:00:14 by potero-d         ###   ########.fr       */
+/*   Updated: 2022/08/31 12:41:07 by potero-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,9 @@ int	main(int argc, char **argv)
 void	init(t_game *game, int x, int y, char *argv)
 {
 	create_matrix(argv, x, y, game->matrix);
+	dir_x_y(game);
+	game->player.plane_x = 0;
+	game->player.plane_y = 0.66;
 //	create_border(x, y, game->matrix);
 //	border(game->matrix, x, y);
 //	read_map(game, x, y);
