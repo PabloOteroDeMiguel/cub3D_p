@@ -6,7 +6,7 @@
 /*   By: potero-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 14:14:52 by potero-d          #+#    #+#             */
-/*   Updated: 2022/08/30 16:22:57 by potero-d         ###   ########.fr       */
+/*   Updated: 2022/08/31 10:53:23 by potero-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,16 @@ void    looking_at(t_game *game)
 {
 	if (game->direction == 1)
 		mlx_put_image_to_window(game->mlx.mlx, game->mlx.window, game->mlx.img_n,
-			(game->player.y * 50), (game->player.x * 50));
+			(game->player.y * 15), (game->player.x * 15));
 	else if (game->direction == 3)
 		mlx_put_image_to_window(game->mlx.mlx, game->mlx.window, game->mlx.img_s,
-			(game->player.y * 50), (game->player.x * 50));
+			(game->player.y * 15), (game->player.x * 15));
 	else if (game->direction== 4)
 		mlx_put_image_to_window(game->mlx.mlx, game->mlx.window, game->mlx.img_o,
-			(game->player.y * 50), (game->player.x * 50));
+			(game->player.y * 15), (game->player.x * 15));
 	else if (game->direction== 2)
 			mlx_put_image_to_window(game->mlx.mlx, game->mlx.window, game->mlx.img_e,
-				(game->player.y * 50), (game->player.x * 50));
+				(game->player.y * 15), (game->player.x * 15));
 }
 
 void	look_left(t_game *game)

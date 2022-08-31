@@ -6,7 +6,7 @@
 /*   By: potero-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 11:20:10 by potero-d          #+#    #+#             */
-/*   Updated: 2022/08/31 09:59:02 by potero-d         ###   ########.fr       */
+/*   Updated: 2022/08/31 10:53:25 by potero-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	init(t_game *game, int x, int y, char *argv)
 //	read_matrix(game, x, y);
 	game->mlx.mlx = mlx_init();
 	game->mlx.window = mlx_new_window(game->mlx.mlx,
-			(y * 50), (x * 50), "Cub3D");
+			(y * 15), (x * 15), "minimap");
 	assets(&game->mlx);
 }
 
