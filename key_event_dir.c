@@ -6,7 +6,7 @@
 /*   By: potero-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 16:10:03 by potero-d          #+#    #+#             */
-/*   Updated: 2022/08/30 21:05:28 by potero           ###   ########.fr       */
+/*   Updated: 2022/08/31 09:58:58 by potero-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,6 @@ int key_event_n(int key_code, t_game *game)
 		look_left(game);
 	if (key_code == 124)
 		look_right(game);
-/*
-	if (key_code == 53)
-		close_esc(&game->mlx);
-*/
 	return (0);
 }
 
@@ -55,10 +51,6 @@ int key_event_s(int key_code, t_game *game)
 		look_left(game);
 	if (key_code == 124)
 		look_right(game);
-/*
-	if (key_code == 53)
-		close_esc(&game->mlx);
-*/
 	return (0);
 }
 
@@ -80,10 +72,6 @@ int key_event_e(int key_code, t_game *game)
 		look_left(game);
 	if (key_code == 124)
 		look_right(game);
-/*
-	if (key_code == 53)
-		close_esc(&game->mlx);
-*/
 	return (0);
 }
 
@@ -105,9 +93,5 @@ int key_event_o(int key_code, t_game *game)
 		look_left(game);
 	if (key_code == 124)
 		look_right(game);
-/*
-	if (key_code == 53)
-		close_esc(&game->mlx);
-*/
 	return (0);
 }

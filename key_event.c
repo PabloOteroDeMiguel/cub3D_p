@@ -6,7 +6,7 @@
 /*   By: potero-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 13:21:37 by potero-d          #+#    #+#             */
-/*   Updated: 2022/08/30 21:04:51 by potero           ###   ########.fr       */
+/*   Updated: 2022/08/31 09:59:00 by potero-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 int	key_event(int key_code, t_game *game)
 {
-	printf("dir->%d\n", game->direction);
+	if (key_code == 53)
+		 close_esc(&game->mlx);
 	if (game->direction == 1)
 		key_event_n(key_code, game);
 	else if (game->direction == 2)

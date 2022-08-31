@@ -6,7 +6,7 @@
 /*   By: potero-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 11:17:49 by potero-d          #+#    #+#             */
-/*   Updated: 2022/08/30 16:37:17 by potero-d         ###   ########.fr       */
+/*   Updated: 2022/08/31 09:56:08 by potero-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 int		main(int argc, char **argv);
 void	init(t_game *game, int x, int y, char *argv);
 int		hook_loop(t_game *game);
+int		close_esc(t_mlx *mlx);
 
 /*Marix Size*/
 void	matrix_size(char *file, int *x, int *y);
