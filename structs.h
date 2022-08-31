@@ -6,7 +6,7 @@
 /*   By: potero-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 11:15:53 by potero-d          #+#    #+#             */
-/*   Updated: 2022/08/30 14:50:33 by potero-d         ###   ########.fr       */
+/*   Updated: 2022/08/31 10:55:51 by potero-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ typedef struct s_mlx
 {
 	void	*mlx;
 	void	*window;
+	void	*screen;
 	void	*img_n;
 	void	*img_s;
 	void	*img_e;
