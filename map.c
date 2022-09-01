@@ -6,11 +6,32 @@
 /*   By: potero-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 12:52:30 by potero-d          #+#    #+#             */
-/*   Updated: 2022/08/31 12:29:08 by potero-d         ###   ########.fr       */
+/*   Updated: 2022/09/01 12:39:52 by potero-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+void	player_pixel(t_game *game)
+{
+	int	i;
+	int	j;
+
+	i = 5;
+	j = 6;
+	while (i < 10)
+	{
+		j = 6;
+		while (j < 11)
+		{
+			mlx_pixel_put(game->mlx.mlx, game->mlx.window,
+				(game->player.y * 15) + j, (game->player.x * 15) + i, 0x00FF0000);
+			j++;
+		}
+		i++;
+	}
+}	
+	
 
 void	image_aux(t_game *game, int pos_x, int pos_y)
 {
@@ -24,6 +45,7 @@ void	image_aux(t_game *game, int pos_x, int pos_y)
 		game->player.x = pos_x;
 		game->player.y = pos_y;
 		game->direction = dir(game->matrix[pos_x][pos_y].value);
+		player_pixel(game);
 	}
 	else if (game->matrix[pos_x][pos_y].value == 'S')
 	{

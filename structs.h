@@ -6,7 +6,7 @@
 /*   By: potero-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 11:15:53 by potero-d          #+#    #+#             */
-/*   Updated: 2022/08/31 13:26:49 by potero-d         ###   ########.fr       */
+/*   Updated: 2022/09/01 12:02:25 by potero-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ typedef struct s_mlx
 	void	*img_o;
 	void	*img_w;
 	void	*img_f;
+//	void	*player;
+//	char	*addr;
 }	t_mlx;
 /*
 typedef struct s_sprite
@@ -50,6 +52,11 @@ typedef struct s_player
 {
 	int		x;
 	int		y;
+	int		advance;
+	int		turn;
+	double	angle;
+	int		speed_m;
+	double	speed_t;
 	double	dir_x;
 	double	dir_y;
 	double	plane_x;
@@ -63,6 +70,8 @@ typedef struct s_game
 	t_player	player;
 	int			direction;
 	int			frames;
+	int			height;
+	int			width;
 	int			steps;
 }	t_game;
 

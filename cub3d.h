@@ -6,7 +6,7 @@
 /*   By: potero-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 11:17:49 by potero-d          #+#    #+#             */
-/*   Updated: 2022/08/31 13:26:51 by potero-d         ###   ########.fr       */
+/*   Updated: 2022/09/01 12:38:57 by potero-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include<stdlib.h>
 # include<stdio.h>
 # include<fcntl.h>
+# include<math.h>
 # include "gnl/get_next_line.h"
 # include "structs.h"
 # include "libft.h"
@@ -40,6 +41,7 @@ void	assets(t_mlx *mlx);
 
 /*Map*/
 void	image(t_game *game, int x, int y);
+void	player_pixel(t_game *game);
 
 /*Key Event*/
 int		key_event(int key_code, t_game *game);
@@ -61,5 +63,8 @@ void	look_left(t_game *game);
 void	look_right(t_game *game);
 int		dir(char value);
 void	dir_x_y(t_game *game);
+
+/*Screen*/
+void	screen_game(t_game *game, int x, int y);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: potero-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 11:20:10 by potero-d          #+#    #+#             */
-/*   Updated: 2022/08/31 13:26:46 by potero-d         ###   ########.fr       */
+/*   Updated: 2022/09/01 12:33:04 by potero-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,38 +32,41 @@ int	main(int argc, char **argv)
 		return (0);
 	init(&game, x, y, argv[1]);
 	image(&game, x, y);
+	//screen_game(&game, x, y);
 	hook_loop(&game);
 }
 
 void	init(t_game *game, int x, int y, char *argv)
 {
 	create_matrix(argv, x, y, game->matrix);
-	dir_x_y(game);
+/*	dir_x_y(game);
 	game->player.plane_x = 0;
 	game->player.plane_y = 0.66;
-//	create_border(x, y, game->matrix);
-//	border(game->matrix, x, y);
-//	read_map(game, x, y);
-//	read_matrix(game, x, y);
+	game->player.speed_m = 3;	//pixels
+	game->player.speed_t = 3 *(M_PI / 180);	//grados
+	game->player.angle = 0;		//rad
+	game->width = 1024;
+	game->height = 1280;*/
 	game->mlx.mlx = mlx_init();
-	game->mlx.window = mlx_new_window(game->mlx.mlx,
-			(y * 15), (x * 15), "minimap");
-//	game->mlx.screen = mlx_new_window(game->mlx.mlx, 640, 512, "cub3D"); 
+	game->mlx.window = mlx_new_window(game->mlx.mlx, (y * 15), (x * 15), "minimap");
+	//game->mlx.screen = mlx_new_window(game->mlx.mlx, game->height, game->width, "cub3D"); 
 	assets(&game->mlx);
 }
 
-int key_event_2(int key_code)
+int advance(int key_code, t_game *game)
 {
-	if (key_code == 13)
-		printf("perssing\n");
+	if (key_code == 1 || key_code == 2 || key_code == 3 || key_code == 13)
+		game->player.advance = 1;
+	else if (key_code == 123 || key_code == 124)
+		game->player.turn = 1;
 	return (0);
 }
 
 int	hook_loop(t_game *game)
 {
 	mlx_key_hook(game->mlx.window, key_event, game);
-	mlx_hook(game->mlx.window, 2, (1L << 0), key_event, game);
-	mlx_hook(game->mlx.window, 3, (1L << 1), key_event, game);
+//	mlx_hook(game->mlx.window, 2, (1L << 0), key_event, game);
+//	mlx_hook(game->mlx.window, 3, (1L << 1), key_event, game);
 	mlx_hook(game->mlx.window, 17, (1L << 17), close_esc, &game->mlx);
 	mlx_loop(game->mlx.mlx);
 	return (0);
