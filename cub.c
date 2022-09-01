@@ -6,7 +6,7 @@
 /*   By: potero-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 11:20:10 by potero-d          #+#    #+#             */
-/*   Updated: 2022/09/01 12:33:04 by potero-d         ###   ########.fr       */
+/*   Updated: 2022/09/01 14:33:57 by potero-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	main(int argc, char **argv)
 	}
 	x = 0;
 	matrix_size(argv[1], &x, &y);
-	//printf("Map size->(%d, %d)\n", x, y);
+	printf("Map size->(%d, %d)\n", x, y);
 	game.matrix = malloc(sizeof(t_matrix *) * x + 1);
 	game.matrix[x] = 0;
 	if (!game.matrix)
