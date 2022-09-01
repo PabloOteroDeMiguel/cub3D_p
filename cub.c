@@ -6,7 +6,7 @@
 /*   By: potero-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 11:20:10 by potero-d          #+#    #+#             */
-/*   Updated: 2022/09/01 14:33:57 by potero-d         ###   ########.fr       */
+/*   Updated: 2022/09/01 17:30:26 by potero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	main(int argc, char **argv)
 	}
 	x = 0;
 	matrix_size(argv[1], &x, &y);
-	printf("Map size->(%d, %d)\n", x, y);
+	//printf("Map size->(%d, %d)\n", x, y);
 	game.matrix = malloc(sizeof(t_matrix *) * x + 1);
 	game.matrix[x] = 0;
 	if (!game.matrix)
@@ -39,14 +39,14 @@ int	main(int argc, char **argv)
 void	init(t_game *game, int x, int y, char *argv)
 {
 	create_matrix(argv, x, y, game->matrix);
-/*	dir_x_y(game);
+	dir_x_y(game);
 	game->player.plane_x = 0;
 	game->player.plane_y = 0.66;
 	game->player.speed_m = 3;	//pixels
 	game->player.speed_t = 3 *(M_PI / 180);	//grados
 	game->player.angle = 0;		//rad
 	game->width = 1024;
-	game->height = 1280;*/
+	game->height = 1280;
 	game->mlx.mlx = mlx_init();
 	game->mlx.window = mlx_new_window(game->mlx.mlx, (y * 15), (x * 15), "minimap");
 	//game->mlx.screen = mlx_new_window(game->mlx.mlx, game->height, game->width, "cub3D"); 
