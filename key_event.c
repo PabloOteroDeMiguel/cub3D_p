@@ -6,7 +6,7 @@
 /*   By: potero-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 13:21:37 by potero-d          #+#    #+#             */
-/*   Updated: 2022/09/01 12:34:29 by potero-d         ###   ########.fr       */
+/*   Updated: 2022/09/05 12:58:24 by potero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,9 @@ int	movement(t_game *game, int x, int y)
 	}
 	else
 	{
-		mlx_put_image_to_window(game->mlx.mlx, game->mlx.window, game->mlx.img_f,
-			((game->player.y) * 15), ((game->player.x) * 15));
+		player_pixel(game, 0x8C8C8C); 
+		//mlx_put_image_to_window(game->mlx.mlx, game->mlx.window, game->mlx.img_f,
+		//	((game->player.y) * 15), ((game->player.x) * 15));
 		game->player.x = new_x;
 		game->player.y = new_y;
 		return (0);
