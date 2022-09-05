@@ -6,7 +6,7 @@
 /*   By: potero-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 11:20:10 by potero-d          #+#    #+#             */
-/*   Updated: 2022/09/01 17:30:26 by potero           ###   ########.fr       */
+/*   Updated: 2022/09/05 10:04:17 by potero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,11 +62,24 @@ int advance(int key_code, t_game *game)
 	return (0);
 }
 
+int	stop(int key_code, t_game *game)
+{
+	if (key_code == 1 || key_code == 2 || key_code == 3 || key_code == 13)
+	{
+		game->player.advance = 0;
+		printf("stop advance\n");
+	}
+	else if (key_code == 123 || key_code == 124)
+		game->player.turn = 0;
+	return (0);
+}
+
+
 int	hook_loop(t_game *game)
 {
 	mlx_key_hook(game->mlx.window, key_event, game);
-//	mlx_hook(game->mlx.window, 2, (1L << 0), key_event, game);
-//	mlx_hook(game->mlx.window, 3, (1L << 1), key_event, game);
+	mlx_hook(game->mlx.window, 2, (1L << 0), advance, game);
+	mlx_hook(game->mlx.window, 3, (1L << 1), stop, game);
 	mlx_hook(game->mlx.window, 17, (1L << 17), close_esc, &game->mlx);
 	mlx_loop(game->mlx.mlx);
 	return (0);
