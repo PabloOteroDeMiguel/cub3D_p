@@ -6,7 +6,7 @@
 /*   By: potero-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 11:17:49 by potero-d          #+#    #+#             */
-/*   Updated: 2022/09/01 12:38:57 by potero-d         ###   ########.fr       */
+/*   Updated: 2022/09/05 10:41:50 by potero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ void	assets(t_mlx *mlx);
 /*Map*/
 void	image(t_game *game, int x, int y);
 void	player_pixel(t_game *game);
+void	wall_floor_pixel(t_game *game, int pos_x, int pos_y, int color);
 
 /*Key Event*/
 int		key_event(int key_code, t_game *game);
@@ -66,5 +67,9 @@ void	dir_x_y(t_game *game);
 
 /*Screen*/
 void	screen_game(t_game *game, int x, int y);
+
+/*Key hook*/
+int		advance(int key_code, t_game *game);
+int		stop(int key_code, t_game *game);
 
 #endif

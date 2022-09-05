@@ -6,7 +6,7 @@
 /*   By: potero-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 11:20:10 by potero-d          #+#    #+#             */
-/*   Updated: 2022/09/05 10:04:17 by potero           ###   ########.fr       */
+/*   Updated: 2022/09/05 10:38:55 by potero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,28 +52,6 @@ void	init(t_game *game, int x, int y, char *argv)
 	//game->mlx.screen = mlx_new_window(game->mlx.mlx, game->height, game->width, "cub3D"); 
 	assets(&game->mlx);
 }
-
-int advance(int key_code, t_game *game)
-{
-	if (key_code == 1 || key_code == 2 || key_code == 3 || key_code == 13)
-		game->player.advance = 1;
-	else if (key_code == 123 || key_code == 124)
-		game->player.turn = 1;
-	return (0);
-}
-
-int	stop(int key_code, t_game *game)
-{
-	if (key_code == 1 || key_code == 2 || key_code == 3 || key_code == 13)
-	{
-		game->player.advance = 0;
-		printf("stop advance\n");
-	}
-	else if (key_code == 123 || key_code == 124)
-		game->player.turn = 0;
-	return (0);
-}
-
 
 int	hook_loop(t_game *game)
 {
