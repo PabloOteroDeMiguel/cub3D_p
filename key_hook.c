@@ -6,7 +6,7 @@
 /*   By: potero <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 10:36:49 by potero            #+#    #+#             */
-/*   Updated: 2022/09/06 14:03:38 by potero-d         ###   ########.fr       */
+/*   Updated: 2022/09/06 15:19:38 by potero-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,17 +65,13 @@ void	angle(t_game *game)
 	double	num;
 
 	num = game->player.angle;
-	if (game->player.angle < 0)
-		num = num * -1;
 	while (num >= 0)
 		num -= (2 * M_PI);
 	num += (2 * M_PI);
-	
 	if (game->player.angle < 0)
 		new = num + (2 * M_PI);
 	else
 		new = num;
-
 	game->player.angle = new;
 }
 
@@ -104,8 +100,9 @@ void	hook(t_game *game, int key_code)
 		new_y = game->player.y;
 	}
 	game->player.angle += game->player.turn * game->player.speed_t;
-	if (game->player.angle > (2 * M_PI) || game->player.angle < - (2 * M_PI))
+	if (game->player.angle > (2 * M_PI) || game->player.angle < 0)
 		angle(game);
+	//printf("angle: %f\n", game->player.angle);
 	if (movement(game, new_x, new_y) == 0)
 	{
 		image(game);
