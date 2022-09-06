@@ -6,7 +6,7 @@
 /*   By: potero-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 11:20:10 by potero-d          #+#    #+#             */
-/*   Updated: 2022/09/06 12:36:04 by potero-d         ###   ########.fr       */
+/*   Updated: 2022/09/06 14:03:56 by potero-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	init(t_game *game, int x, int y, char *argv)
 {
 	create_matrix(argv, x, y, game->matrix);
 	game->player.speed_m = 0.3;	//pixels
-	game->player.speed_t = 3 *(M_PI / 180);	//grados
+	game->player.speed_t = 7 *(M_PI / 180);	//grados
 	game->width = 1024;
 	game->height = 1280;
 	game->mlx.mlx = mlx_init();
