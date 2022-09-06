@@ -6,7 +6,7 @@
 /*   By: potero-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 11:20:10 by potero-d          #+#    #+#             */
-/*   Updated: 2022/09/06 11:49:06 by potero-d         ###   ########.fr       */
+/*   Updated: 2022/09/06 12:00:06 by potero-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,9 @@ int	main(int argc, char **argv)
 	if (!game.matrix)
 		return (0);
 	init(&game, x, y, argv[1]);
-	image(&game, x, y);
+	game.size_x = x;
+	game.size_y = y;
+	image(&game);
 	//screen_game(&game, x, y);
 	hook_loop(&game);
 }

@@ -6,7 +6,7 @@
 /*   By: potero-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 12:52:30 by potero-d          #+#    #+#             */
-/*   Updated: 2022/09/06 11:30:28 by potero-d         ###   ########.fr       */
+/*   Updated: 2022/09/06 12:08:33 by potero-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ void	image_aux(t_game *game, int pos_x, int pos_y)
 		game->direction = dir(game->matrix[pos_x][pos_y].value);
 		player_pixel(game, 0X0000FF);
 		game->player.angle = -90 * (M_PI / 180);
+		game->matrix[pos_x][pos_y].value = '0';
 	}
 
 	else if (game->matrix[pos_x][pos_y].value == 'S')
@@ -82,6 +83,7 @@ void	image_aux(t_game *game, int pos_x, int pos_y)
 		game->direction = dir(game->matrix[pos_x][pos_y].value);
 		player_pixel(game, 0X0000FF);
 		game->player.angle = 90 * (M_PI / 180);
+		game->matrix[pos_x][pos_y].value = '0';
 	}
 	else if (game->matrix[pos_x][pos_y].value == 'O')
 	{
@@ -90,6 +92,7 @@ void	image_aux(t_game *game, int pos_x, int pos_y)
 		game->direction = dir(game->matrix[pos_x][pos_y].value);
 		player_pixel(game, 0X0000FF);
 		game->player.angle = 180 * (M_PI / 180);
+		game->matrix[pos_x][pos_y].value = '0';
 	}
 	else if (game->matrix[pos_x][pos_y].value == 'E')
 	{
@@ -98,19 +101,20 @@ void	image_aux(t_game *game, int pos_x, int pos_y)
 		game->direction = dir(game->matrix[pos_x][pos_y].value);
 		player_pixel(game, 0X0000FF);
 		game->player.angle = 0;
+		game->matrix[pos_x][pos_y].value = '0';
 	}
 }
 
-void	image(t_game *game, int x, int y)
+void	image(t_game *game)
 {
 	int	pos_x;
 	int	pos_y;
 
 	pos_x = 0;
-	while (pos_x < x)
+	while (pos_x < game->size_x)
 	{
 		pos_y = 0;
-		while (pos_y < y)
+		while (pos_y < game->size_y)
 		{
 			if (game->matrix[pos_x][pos_y].value == '1')
 				wall_floor_pixel(game, pos_x, pos_y, 0x4B0082);

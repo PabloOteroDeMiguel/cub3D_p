@@ -6,7 +6,7 @@
 /*   By: potero-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 11:17:49 by potero-d          #+#    #+#             */
-/*   Updated: 2022/09/06 09:36:50 by potero-d         ###   ########.fr       */
+/*   Updated: 2022/09/06 12:09:03 by potero-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	create_matrix(char *file, int x, int y, t_matrix **matrix);
 void	assets(t_mlx *mlx);
 
 /*Map*/
-void	image(t_game *game, int x, int y);
+void	image(t_game *game);
 void	player_pixel(t_game *game, int color);
 void	wall_floor_pixel(t_game *game, int pos_x, int pos_y, int color);
 

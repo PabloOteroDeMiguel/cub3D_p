@@ -6,7 +6,7 @@
 /*   By: potero <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 10:36:49 by potero            #+#    #+#             */
-/*   Updated: 2022/09/06 11:49:04 by potero-d         ###   ########.fr       */
+/*   Updated: 2022/09/06 12:08:54 by potero-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,11 +82,7 @@ void	hook(t_game *game, int key_code)
 	game->player.angle += game->player.turn * game->player.speed_t;
 	if (movement(game, new_x, new_y) == 0)
 	{
-		player_pixel(game, 0x8C8C8C);
-/*	printf("old_x: %f\n", game->player.x);
-	printf("old_y: %f\n", game->player.y);
-	printf("new_x: %f\n", new_x);
-	printf("new_y: %f\n", new_y);*/
+		image(game);
 		game->player.x = new_x;
 		game->player.y = new_y;
 		player_pixel(game, 0xFF0000);

@@ -6,7 +6,7 @@
 /*   By: potero-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 11:15:53 by potero-d          #+#    #+#             */
-/*   Updated: 2022/09/06 09:19:21 by potero-d         ###   ########.fr       */
+/*   Updated: 2022/09/06 11:58:59 by potero-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,8 @@ typedef struct s_game
 	int			height;
 	int			width;
 	int			steps;
+	int			size_x;
+	int			size_y;
 }	t_game;
 
 #endif
