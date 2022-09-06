@@ -6,7 +6,7 @@
 /*   By: potero-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 11:15:53 by potero-d          #+#    #+#             */
-/*   Updated: 2022/09/05 12:48:33 by potero           ###   ########.fr       */
+/*   Updated: 2022/09/06 09:19:21 by potero-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,10 @@ typedef struct s_player
 {
 	double	x;
 	double	y;
-	int		advance;
-	int		turn;
+	double	advance;
+	double	turn;
 	double	angle;
-	int		speed_m;
+	double	speed_m;
 	double	speed_t;
 	double	dir_x;
 	double	dir_y;

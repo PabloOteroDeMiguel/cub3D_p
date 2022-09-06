@@ -6,7 +6,7 @@
 /*   By: potero-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 11:20:10 by potero-d          #+#    #+#             */
-/*   Updated: 2022/09/05 10:38:55 by potero           ###   ########.fr       */
+/*   Updated: 2022/09/06 09:42:23 by potero-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	init(t_game *game, int x, int y, char *argv)
 	dir_x_y(game);
 	game->player.plane_x = 0;
 	game->player.plane_y = 0.66;
-	game->player.speed_m = 3;	//pixels
+	game->player.speed_m = 0.3;	//pixels
 	game->player.speed_t = 3 *(M_PI / 180);	//grados
 	game->player.angle = 0;		//rad
 	game->width = 1024;
