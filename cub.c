@@ -6,7 +6,7 @@
 /*   By: potero-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 11:20:10 by potero-d          #+#    #+#             */
-/*   Updated: 2022/09/06 09:42:23 by potero-d         ###   ########.fr       */
+/*   Updated: 2022/09/06 11:49:06 by potero-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	init(t_game *game, int x, int y, char *argv)
 	game->player.plane_y = 0.66;
 	game->player.speed_m = 0.3;	//pixels
 	game->player.speed_t = 3 *(M_PI / 180);	//grados
-	game->player.angle = 0;		//rad
+//	game->player.angle = 0;		//rad
 	game->width = 1024;
 	game->height = 1280;
 	game->mlx.mlx = mlx_init();
@@ -55,7 +55,7 @@ void	init(t_game *game, int x, int y, char *argv)
 
 int	hook_loop(t_game *game)
 {
-	mlx_key_hook(game->mlx.window, key_event, game);
+	//mlx_key_hook(game->mlx.window, key_event, game);
 	mlx_hook(game->mlx.window, 2, (1L << 0), advance, game);
 	mlx_hook(game->mlx.window, 3, (1L << 1), stop, game);
 	mlx_hook(game->mlx.window, 17, (1L << 17), close_esc, &game->mlx);

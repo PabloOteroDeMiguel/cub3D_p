@@ -6,7 +6,7 @@
 /*   By: potero-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 12:52:30 by potero-d          #+#    #+#             */
-/*   Updated: 2022/09/05 12:57:53 by potero           ###   ########.fr       */
+/*   Updated: 2022/09/06 11:30:28 by potero-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,30 @@ void	player_pixel(t_game *game, int	color)
 {
 	int	i;
 	int	j;
+	double line;
 
-	i = 5;
-	while (i < 10)
+	i = 0;
+	while (i < 15)
 	{
-		j = 6;
-		while (j < 11)
+		j = 0;
+		while (j < 15)
 		{
 			mlx_pixel_put(game->mlx.mlx, game->mlx.window,
 				(game->player.y * 15) + j, (game->player.x * 15) + i, color);
 			j++;
 		}
 		i++;
+	}
+	i = 0;
+	j = 0;
+	line = 0;
+	while (line < 20)
+	{
+		j = cos(game->player.angle) * line;
+		i = sin(game->player.angle) * line;
+		mlx_pixel_put(game->mlx.mlx, game->mlx.window,
+			(game->player.y * 15) + j + 7, (game->player.x * 15 ) + i + 7, color);
+		line += 0.3;
 	}
 }	
 
@@ -53,48 +65,40 @@ void	wall_floor_pixel(t_game *game, int pos_x, int pos_y, int color)
 
 void	image_aux(t_game *game, int pos_x, int pos_y)
 {
-	//if (game->matrix[pos_x][pos_y].value == '0')
 	wall_floor_pixel(game, pos_x, pos_y, 0x8C8C8C);
-		//mlx_put_image_to_window(game->mlx.mlx, game->mlx.window,
-		//	game->mlx.img_f, (pos_y * 15), (pos_x * 15));
 	if (game->matrix[pos_x][pos_y].value == 'N')
 	{
-		//mlx_put_image_to_window(game->mlx.mlx, game->mlx.window,
-		//	game->mlx.img_n, (pos_y * 15), (pos_x * 15));
 		game->player.x = pos_x;
 		game->player.y = pos_y;
 		game->direction = dir(game->matrix[pos_x][pos_y].value);
 		player_pixel(game, 0X0000FF);
+		game->player.angle = -90 * (M_PI / 180);
 	}
-/*
+
 	else if (game->matrix[pos_x][pos_y].value == 'S')
 	{
-		//mlx_put_image_to_window(game->mlx.mlx, game->mlx.window,
-		//	game->mlx.img_s, (pos_y * 15), (pos_x * 15));
 		game->player.x = pos_x;
 		game->player.y = pos_y;
 		game->direction = dir(game->matrix[pos_x][pos_y].value);
-		player_pixel(game);
+		player_pixel(game, 0X0000FF);
+		game->player.angle = 90 * (M_PI / 180);
 	}
 	else if (game->matrix[pos_x][pos_y].value == 'O')
 	{
-		//mlx_put_image_to_window(game->mlx.mlx, game->mlx.window,
-		//	game->mlx.img_o, (pos_y * 15), (pos_x * 15));
 		game->player.x = pos_x;
 		game->player.y = pos_y;
 		game->direction = dir(game->matrix[pos_x][pos_y].value);
-		player_pixel(game);
+		player_pixel(game, 0X0000FF);
+		game->player.angle = 180 * (M_PI / 180);
 	}
 	else if (game->matrix[pos_x][pos_y].value == 'E')
 	{
-		//mlx_put_image_to_window(game->mlx.mlx, game->mlx.window,
-		//	game->mlx.img_e, (pos_y * 15), (pos_x * 15));
 		game->player.x = pos_x;
 		game->player.y = pos_y;
 		game->direction = dir(game->matrix[pos_x][pos_y].value);
-		player_pixel(game);
+		player_pixel(game, 0X0000FF);
+		game->player.angle = 0;
 	}
-*/
 }
 
 void	image(t_game *game, int x, int y)

@@ -6,7 +6,7 @@
 /*   By: potero <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 10:36:49 by potero            #+#    #+#             */
-/*   Updated: 2022/09/06 09:42:20 by potero-d         ###   ########.fr       */
+/*   Updated: 2022/09/06 11:49:04 by potero-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,13 +45,21 @@ int	stop(int key_code, t_game *game)
 	return (0);
 }
 
+int	movement(t_game *game, int x, int y)
+{
+	if (game->matrix[x][y].value == '1')
+	{
+		printf("Impossible movement\n");
+		return (1);
+	}
+	return (0);
+}
+
 void	hook(t_game *game, int key_code)
 {
 	double	new_x;
 	double	new_y;
 
-	new_x = 0;
-	new_y = 0;
 	if (key_code == 13 || key_code == 1)
 	{
 		new_y = (game->player.advance * (cos(game->player.angle) * game->player.speed_m)) 
@@ -59,21 +67,28 @@ void	hook(t_game *game, int key_code)
 		new_x = (game->player.advance * (sin(game->player.angle) * game->player.speed_m)) 
 			+ game->player.x;
 	}
-	else if (key_code == 0 || key_code == 2)
+	else if (key_code == 2 ||key_code == 0)
 	{
-		new_y = (game->player.advance * (sin(game->player.angle) * game->player.speed_m)) 
-			+ game->player.y;
-		new_x = (game->player.advance * (cos(game->player.angle) * game->player.speed_m)) 
-			+ game->player.x;
+		new_y = (game->player.advance * (cos(game->player.angle + (90 * M_PI / 180))
+					* game->player.speed_m)) + game->player.y;
+		new_x = (game->player.advance * (sin(game->player.angle + (90 * M_PI / 180))
+					* game->player.speed_m)) + game->player.x;
 	}
-
+	else
+	{
+		new_x = game->player.x;
+		new_y = game->player.y;
+	}
 	game->player.angle += game->player.turn * game->player.speed_t;
-	player_pixel(game, 0x8C8C8C);
+	if (movement(game, new_x, new_y) == 0)
+	{
+		player_pixel(game, 0x8C8C8C);
 /*	printf("old_x: %f\n", game->player.x);
 	printf("old_y: %f\n", game->player.y);
 	printf("new_x: %f\n", new_x);
 	printf("new_y: %f\n", new_y);*/
-	game->player.x = new_x;
-	game->player.y = new_y;
-	player_pixel(game, 0xFF0000);
+		game->player.x = new_x;
+		game->player.y = new_y;
+		player_pixel(game, 0xFF0000);
+	}
 }

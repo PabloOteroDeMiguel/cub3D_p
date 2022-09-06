@@ -6,7 +6,7 @@
 /*   By: potero-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 13:21:37 by potero-d          #+#    #+#             */
-/*   Updated: 2022/09/06 09:36:24 by potero-d         ###   ########.fr       */
+/*   Updated: 2022/09/06 10:14:52 by potero-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	key_event(int key_code, t_game *game)
 		key_event_o(key_code, game);
 	return (0);
 }
-
+/*
 int	movement(t_game *game, int x, int y)
 {
 	int	new_x;
@@ -49,3 +49,4 @@ int	movement(t_game *game, int x, int y)
 		return (0);
 	}
 }
+*/
