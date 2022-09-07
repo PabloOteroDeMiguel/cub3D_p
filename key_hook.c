@@ -6,7 +6,7 @@
 /*   By: potero <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 10:36:49 by potero            #+#    #+#             */
-/*   Updated: 2022/09/06 15:51:03 by potero-d         ###   ########.fr       */
+/*   Updated: 2022/09/07 12:15:22 by potero-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,24 +58,7 @@ int	movement(t_game *game, double x, double y)
 	}
 	return (0);
 }
-/*
-//Normalizar el angulo (que esté en el primer giro siempre)
-void	angle(t_game *game)
-{
-	double	new;
-	double	num;
 
-	num = game->player.angle;
-	while (num >= 0)
-		num -= (2 * M_PI);
-	num += (2 * M_PI);
-	if (game->player.angle < 0)
-		new = num + (2 * M_PI);
-	else
-		new = num;
-	game->player.angle = new;
-}
-*/
 void	hook(t_game *game, int key_code)
 {
 	double	new_x;
@@ -106,6 +89,7 @@ void	hook(t_game *game, int key_code)
 	printf("angle: %f\n", game->player.angle);
 	looking_at(game);
 	printf("looking at: %d\n", game->player.looking_at);
+	//ray(game);
 	if (movement(game, new_x, new_y) == 0)
 	{
 		image(game);
