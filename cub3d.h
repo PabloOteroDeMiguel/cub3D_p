@@ -6,7 +6,7 @@
 /*   By: potero-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 11:17:49 by potero-d          #+#    #+#             */
-/*   Updated: 2022/09/06 15:51:05 by potero-d         ###   ########.fr       */
+/*   Updated: 2022/09/07 09:43:18 by potero-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,7 @@ void	hook(t_game *game, int key_code);
 void	angle(t_game *game);
 void	looking_at(t_game *game);
 
+/*Ray*/
+void	init_ray(t_game *game);
 
 #endif

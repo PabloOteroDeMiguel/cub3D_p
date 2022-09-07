@@ -6,7 +6,7 @@
 /*   By: potero-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 11:15:53 by potero-d          #+#    #+#             */
-/*   Updated: 2022/09/06 16:14:55 by potero-d         ###   ########.fr       */
+/*   Updated: 2022/09/07 09:53:37 by potero-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@ typedef struct s_matrix
 {
 	int		pos_x;
 	int		pos_y;
-//	int		border;
-//	int		size;
 	char	value;
 }	t_matrix;
 
@@ -46,7 +44,9 @@ typedef struct s_player
 
 typedef struct s_ray
 {
-	int	ray;
+	int		ray;
+	double	hit_x;
+	double	hit_y;
 }	t_ray;
 
 typedef struct s_game
@@ -55,8 +55,6 @@ typedef struct s_game
 	t_ray		*ray;
 	t_mlx		mlx;
 	t_player	player;
-	int			direction;
-//	int			frames;
 	int			height;
 	int			width;
 	int			size_x;
