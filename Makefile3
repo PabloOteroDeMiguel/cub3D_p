@@ -1,0 +1,55 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: potero-d <marvin@42.fr>                    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/08/30 11:07:15 by potero-d          #+#    #+#              #
+#    Updated: 2022/10/05 10:19:21 by potero           ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+SRCS = src/main.c 
+
+SRC_MAP = data_reader.c data_check.c data_check_aux.c get_file_height.c free_data.c map_work.c visualize_tools.c path_variables.c
+
+SRC_ENGINE = cub.c player_data.c matrix.c screen.c key_hook.c angle.c ray.c dda.c dda_ray.c minimap.c window.c texture.c
+
+LIBFT_PATH = libft/
+
+OBJS = $(SRCS:.c=.o)
+
+OBJ_MAP = $(SRC_MAP:.c=.o)
+
+OBJ_ENGINE = $(SRC_ENGINE:.c=.o)
+
+NAME = cub3D
+
+CC = gcc
+
+CFLAGS = -Wall -Wextra -Werror
+
+%.o:%.c
+		$(CC) $(CFLAGS) -Imlx -c $< -o $(<:.c=.o) -I$(LIBFT_PATH)
+RM = rm -f
+
+$(NAME): $(OBJS) $(OBJ_MAP) $(OBJ_ENGINE)
+		@make -C $(LIBFT_PATH) --silent
+		$(CC) $(CFLAGS) $(OBJS) $(OBJ_MAP) $(OBJ_ENGINE) -Imlx -lmlx -framework OpenGL -framework AppKit -o $(NAME) -I./libft -L./libft -lft
+	#	$(CC) $(CFLAGS) $(OBJS) $(OBJ_MAP) $(OBJ_ENGINE) -lmlx -L/usr/X11/lib -lXext -lX11 -lm -o $(NAME)  -I./libft -L./libft -lft
+
+all: $(NAME)  
+
+
+clean:
+			$(RM) $(OBJS) $(OBJ_MAP) $(OBJ_ENGINE)
+			@make -C $(LIBFT_PATH) clean --silent
+
+fclean: clean
+			$(RM) $(NAME)
+			@make -C $(LIBFT_PATH) fclean --silent
+
+re: fclean $(NAME)
+
+.PHONY: all clean fclean re
