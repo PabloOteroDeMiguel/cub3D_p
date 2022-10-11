@@ -6,7 +6,7 @@
 /*   By: mortiz-d <mortiz-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 12:26:44 by potero-d          #+#    #+#             */
-/*   Updated: 2022/09/28 14:19:24 by potero-d         ###   ########.fr       */
+/*   Updated: 2022/10/11 11:08:35 by potero-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	create_matrix(char **file, int f, int c, t_matrix **matrix)
 	{
 		str = file[i];
 		j = 0;
-		matrix[i] = calloc(sizeof(t_matrix) * c , 1);
+		matrix[i] = calloc(sizeof(t_matrix) * c, 1);
 		if (!matrix[i])
 			exit (0);
 		while (j < c)
@@ -35,8 +35,8 @@ void	create_matrix(char **file, int f, int c, t_matrix **matrix)
 		i++;
 	}
 }
-/*
-void	free_my_matrix(t_matrix *matrix)
+
+void	free_my_matrix(t_matrix **matrix)
 {
 	int		i;
 
@@ -48,4 +48,3 @@ void	free_my_matrix(t_matrix *matrix)
 	}
 	free(matrix);
 }
-*/

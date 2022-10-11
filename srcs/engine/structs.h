@@ -3,16 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: potero-d <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mortiz-d <mortiz-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 11:15:53 by potero-d          #+#    #+#             */
-/*   Updated: 2022/10/05 10:53:36 by potero           ###   ########.fr       */
+/*   Updated: 2022/10/11 10:51:13 by potero-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCTS_H
 # define STRUCTS_H
-
+# define M_SIZE 64
+# define VERTICAL 1
+# define HORIZONTAL 0
+# define RED 0xFF0000
+# define PINK 0xFF00FF
+# define GREEN 0x00FF00
+# define BLUE 0x0000FF
+# define CYAN 0x00FFFF
+# define WHITE 0xFFFFFF
+# define ORANGE 0xFF6600
+# define PURPLE 0x4B0082
+# define DARK_PURPLE 0x3C0068
+# define GREY 0x8C8C8C
 # include "cub3d.h"
 
 typedef struct s_matrix
@@ -28,7 +40,6 @@ typedef struct s_mlx
 	void	*window;
 	void	*screen;
 }	t_mlx;
-
 
 typedef struct s_player
 {
@@ -49,14 +60,26 @@ typedef struct s_ray
 	double	ray_angle;
 	double	hit_f;
 	double	hit_c;
-	int		hit_vertical;
-	int		hit_horizontal;
+	int		wall_hit;
 	double	distance;
 	double	point;
 	double	wall;
 	int		ray_at;
 	int		hor;
 	int		ver;
+	float	hx;
+	float	hy;
+	float	xo;
+	float	yo;
+	float	vx;
+	float	vy;
+	int		mx;
+	int		my;
+	float	rx;
+	float	ry;
+	float	dof;
+	float	distv;
+	float	disth;
 }	t_ray;
 
 typedef struct s_texture
@@ -91,6 +114,7 @@ typedef struct s_game
 	t_image		scrn;
 	t_image		mnmap;
 	t_image		minimap;
+	double		f;
 	double		diff_angle;
 	int			height;
 	int			width;
@@ -102,7 +126,6 @@ typedef struct s_game
 	char		*east_texture;
 	char		*south_texture;
 	char		*west_texture;
-
 }	t_game;
 
 #endif

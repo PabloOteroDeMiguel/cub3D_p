@@ -6,7 +6,7 @@
 /*   By: mortiz-d <mortiz-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 10:36:49 by potero            #+#    #+#             */
-/*   Updated: 2022/10/05 11:41:48 by potero           ###   ########.fr       */
+/*   Updated: 2022/10/11 11:09:15 by potero-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	advance(int key_code, t_game *game)
 {
 	if (key_code == 53)
-		close_esc(game);
+		return (close_esc(game));
 	else if (key_code == 13)
 		game->player.advance = 1;
 	else if (key_code == 1)
@@ -78,7 +78,7 @@ void	hook(t_game *game, int key_code)
 		new_f = (game->player.advance * (sin(game->player.angle)
 					* game->player.speed_m)) + game->player.f;
 	}
-	else if (key_code == 2 ||key_code == 0)
+	else if (key_code == 2 || key_code == 0)
 	{
 		new_c = (game->player.advance * (cos(game->player.angle + (M_PI / 2))
 					* game->player.speed_m)) + game->player.c;
@@ -92,16 +92,14 @@ void	hook(t_game *game, int key_code)
 	}
 	new_c = (int)new_c + 0.5;
 	new_f = (int)new_f + 0.5;
+	finish_hook(new_c, new_f, game);
+}
+
+void	finish_hook(double new_c, double new_f, t_game *game)
+{
 	game->player.angle += game->player.turn * game->player.speed_t;
 	if (game->player.angle > (2 * M_PI) || game->player.angle < 0)
 		angle(game);
-
-	printf("________________________\n");
-	printf("Pos : [%f][%f]\n", new_f, new_c);
-	printf("angle: %f\n", game->player.angle);
-	looking_at(game);
-	printf("________________________\n");
-
 	if (movement(game, new_f - 0.5, new_c - 0.5) == 0)
 	{
 		game->player.f = new_f;
