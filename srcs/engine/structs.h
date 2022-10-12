@@ -6,13 +6,13 @@
 /*   By: mortiz-d <mortiz-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 11:15:53 by potero-d          #+#    #+#             */
-/*   Updated: 2022/10/11 10:51:13 by potero-d         ###   ########.fr       */
+/*   Updated: 2022/10/11 13:45:12 by mortiz-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCTS_H
 # define STRUCTS_H
-# define M_SIZE 64
+# define M_SIZE 32
 # define VERTICAL 1
 # define HORIZONTAL 0
 # define RED 0xFF0000
@@ -25,6 +25,7 @@
 # define PURPLE 0x4B0082
 # define DARK_PURPLE 0x3C0068
 # define GREY 0x8C8C8C
+# define DARK_GREEN 0x186A3B 
 # include "cub3d.h"
 
 typedef struct s_matrix

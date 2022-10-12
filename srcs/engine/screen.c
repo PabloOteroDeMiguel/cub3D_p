@@ -6,7 +6,7 @@
 /*   By: mortiz-d <mortiz-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 12:07:53 by potero-d          #+#    #+#             */
-/*   Updated: 2022/10/11 10:53:29 by potero-d         ###   ########.fr       */
+/*   Updated: 2022/10/11 13:39:41 by potero-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,21 @@ int	select_texture(t_game *game, int r)
 	return (0);
 }
 
+int	index_function(t_game *game, int t, int r)
+{
+	int	index;
+
+	if (t == 1 || t == 3)
+		index = (int)game->f * game->texture[t].height
+			+ ((game->ray[r].hit_c - (int)game->ray[r].hit_c)
+				* game->texture[t].width);
+	else
+		index = (int)game->f * game->texture[t].height
+			+ ((game->ray[r].hit_f - (int)game->ray[r].hit_f)
+				* game->texture[t].width);
+	return (index);
+}
+
 int	aux_screen_game_r(t_game *game, int r, int y, int end)
 {
 	double			step;
@@ -44,19 +59,13 @@ int	aux_screen_game_r(t_game *game, int r, int y, int end)
 	game->f = 0;
 	if (game->ray[r].wall > game->height)
 		game->f = ((game->ray[r].wall - game->height) / 2) * step;
-	while (y++ < end)
+	while (++y < end)
 	{
-		if (t == 1 || t == 3)
-			index = (int)game->f * game->texture[t].height
-				+ ((game->ray[r].hit_c - (int)game->ray[r].hit_c)
-					* game->texture[t].width);
-		else
-			index = (int)game->f * game->texture[t].height
-				+ ((game->ray[r].hit_f - (int)game->ray[r].hit_f)
-					* game->texture[t].width);
+		index = index_function(game, t, r);
 		game->f += step;
 		color = ((unsigned int *)(game->texture[t].add))[index];
-		put_pixel(&game->scrn, r, y, color);
+		if (y < game->width)
+			put_pixel(&game->scrn, r, y, color);
 	}
 	return (y);
 }
@@ -70,12 +79,13 @@ void	screen_game_r(t_game *game, int r)
 
 	middle = game->height / 2;
 	y = -1;
+	y = 0;
 	start = middle - (game->ray[r].wall / 2);
 	end = start + (int)game->ray[r].wall;
-	while (y++ <= start)
+	while (++y <= start)
 		put_pixel(&game->scrn, r, y, game->roof_color);
 	y = (aux_screen_game_r(game, r, y - 1, end)) - 1;
-	while (y++ < game->height)
+	while (++y < game->height)
 		put_pixel(&game->scrn, r, y, game->floor_color);
 }
 
@@ -92,11 +102,10 @@ void	start_game(t_game *game)
 	x = -1;
 	while (++x < game->width)
 	{
-		y = -1;
+		y = 0;
 		while (++y < middle)
 			put_pixel(&game->scrn, x, y, game->roof_color);
-		y--;
-		while (y++ < game->height)
+		while (++y < game->height)
 			put_pixel(&game->scrn, x, y, game->floor_color);
 	}
 	mlx_put_image_to_window(game->mlx.mlx,
